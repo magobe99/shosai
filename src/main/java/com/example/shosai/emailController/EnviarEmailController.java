@@ -26,7 +26,7 @@ public class EnviarEmailController {
 			@RequestParam("subject")String subject,@RequestParam("body") String body*/) {
         Usuario usuario1 = usuario.findByCorreo(correo.toLowerCase());
         String mensaje = sendMailService.plantillaCambioContra().
-                replace("URL_CAMBIO_CONTRASENA", "http://localhost:8080/formularioCambioContraseña?identificaion=" + usuario1.getIdentificaion()).
+                replace("URL_CAMBIO_CONTRASENA", "https://shosai.herokuapp.com/formularioCambioContraseña?identificaion=" + usuario1.getIdentificaion()).
                 replace("nombre_usuario", usuario1.getNombres() + " " + usuario1.getApellidos()); //body + "\n\n  correo de contacto;" +subject+"\n asunto"  + "\n email" + correo;
         String subject = "Cambio de contraseña usuario " + usuario1.getNombres() + " " + usuario1.getApellidos();
         sendMailService.enviaremail("shosaisystem@gmail.com", correo, subject, mensaje);
