@@ -10,7 +10,7 @@ function reporte(){
 	var tip0 = document.getElementById("tip0").value;
 	
 	
-	window.open("http://localhost:8080/report/ventas/download?fechaInicio="+Parameter1+"&tipo="+tip0);
+	window.open("/report/ventas/download?fechaInicio="+Parameter1+"&tipo="+tip0);
 	
 }
 
