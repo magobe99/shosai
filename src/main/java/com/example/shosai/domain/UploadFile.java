@@ -25,7 +25,7 @@ public class UploadFile {
     public List<Producto> guardarFile(MultipartFile path) throws IOException, CsvValidationException {
         List<Producto> producto = new ArrayList<>();
 
-        String ruta = "../src/main/resources" + path.getOriginalFilename();
+        String ruta = "../var/www/html" + path.getOriginalFilename();
         File localFile = new File(ruta);
         path.transferTo(localFile);
 
