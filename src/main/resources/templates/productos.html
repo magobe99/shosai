@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="html_head">
+        <meta charset="utf-8">
+        <title>Productos</title>
+        <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+        <link rel="icon" href="https://pbs.twimg.com/media/FWDfO8vWYAE2TjA?format=png&name=240x240" />
+
+        <!-- Fonts and icons -->
+        <script src="js/webfont.min.js"></script>
+        <script>
+            WebFont.load({
+                google: {"families": ["Open+Sans:300,400,600,700"]},
+                custom: {"families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands"], urls: ['css/fonts.css']},
+                active: function () {
+                    sessionStorage.fonts = true;
+                }
+            });
+        </script>
+
+        <!-- CSS Files -->
+        <link rel="stylesheet" th:href="@{/css/diseño_productos.css}">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/4d9590b635.js" crossorigin="anonymous"></script>
+        <link rel="icon" href="../img/logo2.png">
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="jquery-3.2.1.js"></script>
+        <script src="script.js"></script>
+
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/datatables.min.css">
+        <link rel="stylesheet" href="css/azzara.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
+
+        <!-- CSS Just for demo purpose, don't include it in your project -->
+    </head>
+    <body>
+        <div class="main-header" th:replace="cliente ::html_navbar"></div>
+        <div class="sidebar" th:replace="cliente ::html_sidebar"></div>
+        <div class="main-panel">
+            <div class="content content-full">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-14 mt-6">
+                            <div class="wrap">
+                                <h1>Nuestros productos</h1>
+                                <div class="store-wrapper">
+
+                                    <section class="products-list">
+                                        <div class="product-item" category="desayuno">
+                                            <img src="../img/desyuno1.jpg" alt="" >
+                                            <a href="#">Desayuno Rosa</a>
+                                        </div>
+                                        <div class="product-item" category="desayuno">
+                                            <img src="../img/desyuno2.jpg" alt="" >
+                                            <a href="#">Desayuno Oro</a>
+                                        </div>
+                                        <div class="product-item" category="desayuno">
+                                            <img src="../img/desayuno3.jpg" alt="" >
+                                            <a href="#">Desayuno Floral</a>
+                                        </div>
+                                        <div class="product-item" category="desayuno">
+                                            <img src="../img/ancheta10.jpeg" alt="" >
+                                            <a href="#">Desayuno Frutas</a>
+                                        </div>
+                                        <div class="product-item" category="peluches">
+                                            <img src="../img/peluche1.jpg" alt="" >
+                                            <a href="#">Peluche Elefante</a>
+                                        </div>
+                                        <div class="product-item" category="anchetas">
+                                            <img src="../img/ancheta3.jpeg" alt="" >
+                                            <a href="#">Ancheta</a>
+                                        </div>
+                                        <div class="product-item" category="anchetas">
+                                            <img src="../img/ancheta17.jpg" alt="" >
+                                            <a href="#">Ancheta</a>
+                                        </div>
+                                        <div class="product-item" category="anchetas">
+                                            <img src="../img/ancheta4.jpeg" alt="" >
+                                            <a href="#">Ancheta</a>
+                                        </div>
+                                        <div class="product-item" category="anchetas">
+                                            <img src="../img/ancheta1.jpeg" alt="" >
+                                            <a href="#">Ancheta</a>
+                                        </div>
+                                        <div class="product-item" category="carteles">
+                                            <img src="../img/cartel1.jpg" alt="" >
+                                            <a href="#">Cartel Te amo</a>
+                                        </div>
+                                        <div class="product-item" category="carteles">
+                                            <img src="../img/cartel2.jpg" alt="" >
+                                            <a href="#">Cartel Mi vida</a>
+                                        </div>
+                                        <div class="product-item" category="carteles">
+                                            <img src="../img/cartel3.jpg" alt="" >
+                                            <a href="#">Cartel Hija</a>
+                                        </div>
+                                        <div class="product-item" category="peluches">
+                                            <img src="../img/peluche2.jpg" alt="" >
+                                            <a href="#">Peluches Up</a>
+                                        </div>
+                                        <div class="product-item" category="decoracion">
+                                            <img src="../img/decoracionAstro.jpg" alt="" >
+                                            <a href="#">Deco Astronautas</a>
+                                        </div>
+                                        <div class="product-item" category="decoracion">
+                                            <img src="../img/decoracionPaw.jpg" alt="" >
+                                            <a href="#">Deco Paw Patrol</a>
+                                        </div>
+                                        <div class="product-item" category="decoracion">
+                                            <img src="../img/decoracionNube.jpg" alt="" >
+                                            <a href="#">Deco Nubes</a>
+                                        </div>
+                                        <div class="product-item" category="peluches">
+                                            <img src="../img/peluche3.jpg" alt="" >
+                                            <a href="#">Peluche Me gustas</a>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!--   Core JS Files   -->
+        <script src="/js/jquery-3.5.1.slim.min.js"></script>
+        <script src="/js/tabla.js"></script>
+        <script src="/js/datatables.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <!-- jQuery UI -->
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/jquery.ui.touch-punch.min.js"></script>
+        <!-- Bootstrap Toggle -->
+        <script src="js/bootstrap-toggle.min.js"></script>
+        <!-- jQuery Scrollbar -->
+        <script src="js/jquery.scrollbar.min.js"></script>
+        <!-- Azzara JS -->
+        <script src="js/ready.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="master">
+    <head th:replace="productos/agregar_producto ::html_head">
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div class="main-header" th:replace="productos/agregar_producto ::html_navbar"></div>
+        <div class="sidebar" th:replace="administrador ::html_sidebar"></div>
+        <div class="main-panel">
+            <div class="content content-full">
+                <div class="container mt-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 style="font-size: 38px">Editar producto </h2>
+                            <hr style="height:2px;border:none;color:#333;background-color:#F195B2;" />
+                            <form th:object="${producto}" th:action="@{/productos/editar/} + ${producto.id}" method="post">
+                                <input type="hidden" th:field="*{id}">
+                                <div class="form-group">
+                                    <label for="nombre">Nombre del producto</label>
+                                    <input autocomplete="off" autofocus th:field="*{nombre}" id="nombre"
+                                           placeholder="Escribe el nombre del producto" type="text"
+                                           class="form-control" th:classappend="${#fields.hasErrors('nombre')} ? 'is-invalid' : ''">
+                                    <div class="invalid-feedback" th:errors="*{nombre}"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="codigo">Código de barras</label>
+                                    <input autocomplete="off" th:field="*{codigo}" id="codigo" placeholder="Escribe el código del producto"
+                                           type="text"
+                                           class="form-control" th:classappend="${#fields.hasErrors('codigo')} ? 'is-invalid' : ''">
+                                    <div class="invalid-feedback" th:errors="*{codigo}"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="existencia">Existencia actual</label>
+                                    <input autocomplete="off" th:field="*{existencia}" id="existencia"
+                                           placeholder="Cantidad actual del producto" type="number"
+                                           class="form-control" th:classappend="${#fields.hasErrors('existencia')} ? 'is-invalid' : ''">
+                                    <div class="invalid-feedback" th:errors="*{existencia}"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="existencia">Precio</label>
+                                    <input autocomplete="off" th:field="*{precio}" id="precio" placeholder="Precio del producto"
+                                           type="number"
+                                           class="form-control" th:classappend="${#fields.hasErrors('precio')} ? 'is-invalid' : ''">
+                                    <div class="invalid-feedback" th:errors="*{precio}"></div>
+                                </div>
+                                <button class="btn btn-success" type="submit">Guardar</button>
+                                &nbsp;<a class="btn btn-warning" th:href="@{/productos/mostrar}">Ver todos</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </body>
+    <!--   Core JS Files   -->
+    <script src="/../js/jquery.3.2.1.min.js"></script>
+    <script src="/../js/popper.min.js"></script>
+    <script src="/../js/bootstrap.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="/../js/jquery-ui.min.js"></script>
+    <script src="/../js/jquery.ui.touch-punch.min.js"></script>
+    <!-- Bootstrap Toggle -->
+    <script src="/../js/bootstrap-toggle.min.js"></script>
+    <!-- jQuery Scrollbar -->
+    <script src="/../js/jquery.scrollbar.min.js"></script>
+    <!-- Azzara JS -->
+    <script src="/../js/ready.min.js"></script>
+</html>

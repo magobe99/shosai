@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Shosai SYS</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free HTML Templates" name="keywords">
+        <meta content="Free HTML Templates" name="description">
+        <!-- Favicon -->
+        <link rel="icon" href="https://pbs.twimg.com/media/FWDfO8vWYAE2TjA?format=png&name=240x240" />
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="css/owl.carousel.min.css" rel="stylesheet">
+        <link href="css/lightbox.min.css" rel="stylesheet">
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- Topbar Start -->
+        <div class="container-fluid bg-primary py-3 d-none d-md-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-lg-left mb-2 mb-lg-0">
+
+                    </div>
+                    <div class="col-md-6 text-center text-lg-right">
+                        <div class="d-inline-flex align-items-center">
+                            <a class="text-white px-3" href="https://m.facebook.com/Inspira-Sas-306623003535150">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a class="text-white px-3" href="https://api.whatsapp.com/send?phone=573208861340">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Topbar End -->
+
+
+        <!-- Navbar Start -->
+        <div class="container-fluid position-relative nav-bar p-0">
+            <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
+                <nav class="navbar navbar-expand-lg bg-white navbar-light shadow p-lg-0">
+                    <a href="index.html" class="logo navbar-brand d-block d-lg-none">
+                        <img src="img/Logo.png" style="object-fit: cover;">
+                    </a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav ml-auto py-0">
+                            <a th:href="@{/}" class="nav-item nav-link active">Inicio</a>
+                            <a href="#adsi" class="nav-item nav-link">Sobre Nosotros</a>
+                            <a href="#galeria" class="nav-item nav-link">Galería</a>
+                        </div>
+                        <a href="index.html" class="logo navbar-brand mx-5 d-none d-lg-block">
+                            <img src="img/Logo.png" style="object-fit: cover;">
+                        </a>
+                        <div class="navbar-nav mr-auto py-0">
+                            <a href="#productos" class="nav-item nav-link">Productos</a>
+                            <a href="#somos" class="nav-item nav-link">Quienes Somos</a>
+                            <a th:href="@{/index}" class="nav-item nav-link active">Ingresar</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Navbar End -->
+
+
+        <!-- Carousel Start -->
+        <div class="container-fluid p-0 mb-5 pb-5">
+            <div id="header-carousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="w-100" src="https://images.pexels.com/photos/2093717/pexels-photo-2093717.jpeg?cs=srgb&dl=pexels-amponsah-nii-davidson-2093717.jpg&fm=jpg" alt="Image">
+                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                            <div class="p-3" style="max-width: 900px;">
+                                <h4 class="text-white text-uppercase mb-md-3">INSPIRA</h4>
+                                <h1 class="display-3 text-white mb-md-4">Te ayuda a tener mejores momentos</h1>
+                                <a th:href="@{/index}" class="btn btn-primary py-md-3 px-md-5 mt-2">Ingresar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="w-100"  src="https://images.pexels.com/photos/11614983/pexels-photo-11614983.jpeg?cs=srgb&dl=pexels-lucas-andrade-11614983.jpg&fm=jpg" alt="Image">
+                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                            <div class="p-3" style="max-width: 900px;">
+                                <h4 class="text-white text-uppercase mb-md-3">INSPIRA</h4>
+                                <h1 class="display-3 text-white mb-md-4">Te ayuda a tener mejores momentos</h1>
+                                <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Ingresar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+                    <div class="btn btn-secondary px-0" style="width: 45px; height: 45px;">
+                        <span class="carousel-control-prev-icon mb-n1"></span>
+                    </div>
+                </a>
+                <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+                    <div class="btn btn-secondary px-0" style="width: 45px; height: 45px;">
+                        <span class="carousel-control-next-icon mb-n1"></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!-- Carousel End -->
+
+        <!-- About Start -->
+        <div class="container-fluid py-5">
+            <div class="container py-5">
+                <div class="row justify-content-center">
+
+                    <div class="col-lg-7">
+                        <h1 id="adsi" class="section-title position-relative text-center mb-5">Los Mejores Productos los Encuentras Aquí</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 py-5">
+                        <h4 class="font-weight-bold mb-3">Sobre Nosotros</h4>
+                        <p>Tenemos el detalle perfecto, para esa persona tan especial en tu vida, somos especialistas en hacer magia con los detalles. Por eso sabemos el valor sentimental que puede tener un obsequio, por eso cuidamos cada detalle para que sea inolvidable.</p>
+                    </div>
+                    <div class="col-lg-4" style="min-height: 400px;">
+                        <div class="position-relative h-100 rounded overflow-hidden">
+                            <img class="position-absolute w-100 h-100" src="https://images.pexels.com/photos/2232567/pexels-photo-2232567.jpeg?cs=srgb&dl=pexels-hassan-ouajbir-2232567.jpg&fm=jpg" style="object-fit: cover;">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 py-5">
+                        <h4 class="font-weight-bold mb-3">Nuestras características</h4>
+                        <p>Encuentra detalles para amor y amistad,cumpleaños,dia de la madre,un aniversario.
+                            Cualquier excusa es válida para darle un detalle a las personas más especiales en tu vida.</p>
+                        <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>Encuentra detalles y mas</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+
+        <!-- Portfolio Start -->
+        <div class="container-fluid my-5 py-5 px-0">
+            <div class="row justify-content-center m-0">
+                <div class="col-lg-5">
+                    <h1 id="galeria" class="section-title position-relative text-center mb-5">Galería</h1>
+                </div>
+            </div>
+            <div class="row m-0 portfolio-container">
+                <div class="col-lg-4 col-md-6 p-0 portfolio-item">
+                    <div class="position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="https://pbs.twimg.com/media/FWDRv0fWAAIs2NB?format=jpg&name=medium" alt="">
+                        <a class="portfolio-btn" href="https://pbs.twimg.com/media/FWDRv0fWAAIs2NB?format=jpg&name=medium" data-lightbox="portfolio">
+                            <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 p-0 portfolio-item">
+                    <div class="position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="https://pbs.twimg.com/media/FWDRn-EWYAI784r?format=jpg&name=medium" alt="">
+                        <a class="portfolio-btn" href="https://pbs.twimg.com/media/FWDRn-EWYAI784r?format=jpg&name=medium" data-lightbox="portfolio">
+                            <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 p-0 portfolio-item">
+                    <div class="position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="https://pbs.twimg.com/media/FWDRv1rWQAEM6P_?format=jpg&name=medium" alt="">
+                        <a class="portfolio-btn" href="https://pbs.twimg.com/media/FWDRv1rWQAEM6P_?format=jpg&name=medium" data-lightbox="portfolio">
+                            <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Portfolio End -->
+
+
+        <!-- Services Start -->
+        <div class="container-fluid py-5">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h1 id="somos" class="section-title position-relative mb-5">¿QUIENES SOMOS?</h1>
+                    </div>
+                    <div class="col-lg-6 mb-5 mb-lg-0 pb-5 pb-lg-0"></div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="owl-carousel service-carousel">
+                            <div class="service-item">
+                                <div class="service-img mx-auto">
+                                    <img class="rounded-circle w-100 h-100 bg-light p-3" src="https://images.pexels.com/photos/1578293/pexels-photo-1578293.jpeg?cs=srgb&dl=pexels-sharon-mccutcheon-1578293.jpg&fm=jpg" style="object-fit: cover;">
+                                </div>
+                                <div class="position-relative text-center bg-light rounded p-4 pb-5" style="margin-top: -75px;">
+                                    <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">Misión</h5>
+                                    <p>Trabajar con pasión y delicadeza en el detalle, para ofrecer los mejores obsequios a un mercado 
+                                        que disfruta del valor de la expresión de afecto a través de un detalle inolvidable, 
+                                        con productos de alta calidad que satisfagan todas las expectativas de nuestros clientes.</p>
+                                </div>
+                            </div>
+                            <div class="service-item">
+                                <div class="service-img mx-auto">
+                                    <img class="rounded-circle w-100 h-100 bg-light p-3" src="https://cdn.pixabay.com/photo/2017/02/11/14/19/valentines-day-2057745_960_720.jpg" style="object-fit: cover;">
+                                </div>
+                                <div class="position-relative text-center bg-light rounded p-4 pb-5" style="margin-top: -75px;">
+                                    <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">Visión</h5>
+                                    <p>Establecernos como una empresa sólida y líder que permita ser la mejor opción del mercado 
+                                        Colombiano para realizar el envío de detalles inolvidables, brindando productos 
+                                        de la mejor calidad para cada uno de nuestos clientes, satisfaciendolos agradablemente.</p>
+
+                                </div>
+                            </div>
+                            <div class="service-item">
+                                <div class="service-img mx-auto">
+                                    <img class="rounded-circle w-100 h-100 bg-light p-3" src="https://cdn.pixabay.com/photo/2018/03/24/16/08/cake-3257019__340.jpg" style="object-fit: cover;">
+                                </div>
+                                <div class="position-relative text-center bg-light rounded p-4 pb-5" style="margin-top: -75px;">
+                                    <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">Objetivos</h5>
+                                    <p>En INSPIRA contamos con tres importantes objetivos, el principal es dar productos de gran condición 
+                                        a nuestros clientes, luego es contar con productos de muy buena calidad, y por último esta el brindar 
+                                        muy buena atención a nuestros clientes para que nos sigan escogiendo día a día.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Services End -->
+
+
+
+        <!-- Products Start -->
+        <div class="container-fluid py-5">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h1 id="productos" class="section-title position-relative mb-5">Nuestros Productos</h1>
+                    </div>
+                    <div class="col-lg-6 mb-5 mb-lg-0 pb-5 pb-lg-0"></div>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card" style="width: 18rem;">
+                            <img src="https://pbs.twimg.com/media/FWDRzcyXoAEIjA0?format=jpg&name=medium" class="card-img-top" alt="...">
+                            <ul style="color: purple;" class="list-group list-group-flush">
+                                <li  class="list-group-item card-link text-center">Desayuno Rosa</li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card" style="width: 18rem;">
+                            <img src="https://pbs.twimg.com/media/FWDRzdoXgAIghOd?format=jpg&name=medium" class="card-img-top" alt="...">
+                            <ul style="color: purple;" class="list-group list-group-flush">
+                                <li  class="list-group-item card-link text-center">Desayuno Oro</li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card" style="width: 18rem;">
+                            <img src="https://pbs.twimg.com/media/FWDRv2UWIAEoZn1?format=jpg&name=medium" class="card-img-top" alt="...">
+                            <ul style="color: purple;" class="list-group list-group-flush">
+                                <li  class="list-group-item card-link text-center">Desayuno Floral</li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card" style="width: 18rem;">
+                            <img src="https://pbs.twimg.com/media/FWDRlTqWYAAw4w5?format=jpg&name=large" class="card-img-top" alt="...">
+                            <ul style="color: purple;" class="list-group list-group-flush">
+                                <li  class="list-group-item card-link text-center">Desayuno Frutal</li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card" style="width: 18rem;">
+                            <img src="https://pbs.twimg.com/media/FWD3E27XkAAAKNj?format=jpg&name=medium" class="card-img-top" alt="...">
+                            <ul style="color: purple;" class="list-group list-group-flush">
+                                <li  class="list-group-item card-link text-center">Peluche Elefante</li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card" style="width: 18rem;">
+                            <img src="https://pbs.twimg.com/media/FWDRWm3XwAAAiDQ?format=jpg&name=large" class="card-img-top" alt="...">
+                            <ul style="color: purple;" class="list-group list-group-flush">
+                                <li  class="list-group-item card-link text-center">Ancheta Peluche</li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card" style="width: 18rem;">
+                            <img src="https://pbs.twimg.com/media/FWD3bEFWAAEJKtK?format=jpg&name=medium" class="card-img-top" alt="...">
+                            <ul style="color: purple;" class="list-group list-group-flush">
+                                <li  class="list-group-item card-link text-center">Ancheta Combo</li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card" style="width: 18rem;">
+                            <img src="https://pbs.twimg.com/media/FWDRrFkWAAAyiin?format=jpg&name=medium" class="card-img-top" alt="...">
+                            <ul style="color: purple;" class="list-group list-group-flush">
+                                <li  class="list-group-item card-link text-center">Cartel Te Amo</li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <!-- Products End -->
+
+
+
+    <!-- Testimonial Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <h1 class="section-title position-relative text-center mb-5">Contáctanos</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <form method="POST" th:action="@{/sendMail}" id="emailForm">
+
+                        <!-- Name input -->
+                        <div class="mb-3">
+                            <label class="form-label" for="name">Nombre</label>
+                            <input class="form-control" name="name" id="nombre" type="text" placeholder="Nombre" />
+                        </div>
+
+                        <!-- Email address input -->
+                        <div class="mb-3">
+                            <label class="form-label" for="emailAddress">Correo</label>
+                            <input class="form-control" id="correo" name="mail" type="email" placeholder="Correo electronico" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="asunto">Asunto</label>
+                            <input class="form-control" name="subject" id="asunto" type="text" placeholder="Asunto" />
+                        </div>
+
+                        <!-- Message input -->
+                        <div class="mb-3">
+                            <label class="form-label" for="message">Mensaje</label>
+                            <textarea class="form-control" name="body" id="mensaje" type="text" placeholder="Mensaje" style="height: 10rem;"></textarea>
+                        </div>
+
+                        <!-- Form submit button -->
+                        <div class="d-grid">
+                            <button class="btn btn-primary btn-lg" type="submit" onclick="envios()">Enviar</button>
+                        </div>
+
+                    </form>
+
+                </div>
+                <div class="col-lg-6 ">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d994.3477843470505!2d-74.12045897083784!3d4.523350136722429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3fa2213488a10f%3A0x1e7bb1ffe508c668!2sCl.%2069f%20Sur%20%2314c20%2C%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1624259816538!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <div class="text-center mt-2">
+                        <h5 class="font-weight-bold mb-2">Direccion: Cll 69 f Sur # 14 c 84 La aurora usme</h5>
+                        <p class="mb-2">Telefono: 3208861340</p>
+                        <p class="mb-0">Bogota</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->
+
+
+<!-- Footer Start -->
+<div class="container-fluid footer bg-light " style="margin-top: 0px;">
+    <div class="container text-center ">
+        <div class="row">
+            <div class="col-12 ">
+                <a href="index.html" class="navbar-brand m-0">
+                    <img src="img/Logo.png" style="object-fit: cover;">
+                </a>
+            </div>
+            <div class="col-12 mb-4">
+                <a class="btn btn-outline-secondary btn-social mr-2" href="https://m.facebook.com/Inspira-Sas-306623003535150"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-outline-secondary btn-social mr-2" href="https://api.whatsapp.com/send?phone=573208861340"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="col-12">
+                <p class="m-0">&copy; <a href="https://www.euroinnova.co/blog/que-es-copyright">Copyright © 2022</a>. Todos los derechos reservados a Mariana Mahecha & Yurley Loaiza
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-secondary px-2 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="js/easing.min.js"></script>
+<script src="js/waypoints.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/isotope.pkgd.min.js"></script>
+<script src="js/lightbox.min.js"></script>
+
+
+
+<!-- Template Javascript -->
+<script src="js/main2.js"></script>
+</body>
+
+</html>

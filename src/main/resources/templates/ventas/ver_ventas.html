@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="master">
+  <head th:replace="productos/agregar_producto ::html_head">
+   <meta charset="utf-8">
+     </head>
+    <body>
+	 <div class="main-header" th:replace="productos/agregar_producto ::html_navbar"></div>
+       <div class="sidebar" th:replace="administrador ::html_sidebar"></div>
+       
+       <div class="main-panel">
+			<div class="content content-full">
+				<div class="container mt-5">
+				
+					  <div class="col-12">
+                     <h2 style="font-size: 38px">Ventas </h2>
+                  <hr style="height:2px;border:none;color:#333;background-color:#F195B2;" />
+
+                    <form action="" method="post" class="form-group">
+                        <label for="fecha2">Formato Reporte Ventas</label> <select id="tip0"
+                                                                    class="form-control">
+                            <option name="tip0" value="PDF" selected>PDF</option>
+                            <option name="tip0" value="EXCEL">EXCEL</option>
+                        </select><br>
+                        <button class="btn btn-outline-dark" type="button"
+                                onclick="reporte5()">Descargar</button>
+                    </form>
+
+                </div>
+                <a class="btn btn-success mb-2" th:href="@{/vender/}">Agregar</a>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Total</th>
+                                <th>Productos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="venta : ${ventas}">
+                                <td th:text="${venta.fechaYHora}"></td>
+                                <td th:text="${venta.total}"></td>
+                                <td>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Código de barras</th>
+                                                <th>Cantidad vendida</th>
+                                                <th>Precio</th>
+                                                <th>Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="producto : ${venta.productos}">
+                                                <td th:text="${producto.nombre}"></td>
+                                                <td th:text="${producto.codigo}"></td>
+                                                <td th:text="${producto.cantidad}"></td>
+                                                <td th:text="${producto.precio}"></td>
+                                                <td th:text="${producto.total}"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <form action="" method="post" class="form-group">
+                    <label for="fecha2">Formato Reporte Ventas Fecha</label> <select id="tip0"
+                                                                class="form-control">
+                        <option name="tip0" value="PDF" selected>PDF</option>
+                        <option name="tip0" value="EXCEL">EXCEL</option>
+                    </select><br>
+                    <button class="btn btn-outline-dark" type="button"
+                            onclick="reporte2()">Descargar</button>
+                </form>
+			
+              
+            
+        </div>
+			</div>
+			
+</div>
+                <!--   Core JS Files   -->
+	<script src="../js/jquery.3.2.1.min.js"></script>
+	<script src="../js/popper.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<!-- jQuery UI -->
+	<script src="../js/jquery-ui.min.js"></script>
+	<script src="../js/jquery.ui.touch-punch.min.js"></script>
+	<!-- Bootstrap Toggle -->
+	<script src="../js/bootstrap-toggle.min.js"></script>
+	<!-- jQuery Scrollbar -->
+	<script src="../js/jquery.scrollbar.min.js"></script>
+	<!-- Azzara JS -->
+	<script src="../js/ready.min.js"></script>
+        <script src="../css/bootstrap.min.js"></script>
+  
+
+</body>
+
+
+<script type="text/javascript">
+    function reporte5() {
+
+        var tip0 = document.getElementById("tip0").value;
+
+        window.open("/report/ventas/ReporteVenta?tipo=" + tip0);
+
+    }
+</script>
+  <script type="text/javascript">
+   function reporte2(){
+	
+	var tip0 = document.getElementById("tip0").value;
+	
+	window.open("/report/ventas/ReporteVentas1?tipo="+tip0);
+	
+}
+</script>
+</html>

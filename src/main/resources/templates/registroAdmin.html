@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="administrador ::html_head">
+    <meta charset="utf-8">
+     </head>
+    <body>
+        <div class="main-header" th:replace="administrador ::html_navbar"></div>
+       <div class="sidebar" th:replace="administrador ::html_sidebar"></div>
+       <div class="main-panel">
+			<div class="content content-full">
+			<div class="container mt-5">
+            <div class="row">
+          
+                <div class="col-md-3">
+                    <h2 style="font-size: 29px" class="text-center">Registrar Cliente</h2>
+                  <hr style="height:2px;border:none;color:#333;background-color:#F195B2;" />
+
+                    <form th:action="@{/guardarAdmin}" th:object="${usuario}" method="POST" >
+                        <input type="text" class="form-control mb-3" placeholder="Nombres" th:field="*{nombres}" required >
+                        <input type="text" class="form-control mb-3" placeholder="Apellidos" th:field="*{apellidos}" required>
+                        <input type="number" class="form-control mb-3" placeholder="Telefono" th:field="*{telefono}"required>
+                        <input type="email" class="form-control mb-3" placeholder="Correo Electronico" th:field="*{correo}" required>
+                        <input type="number" class="form-control mb-3" placeholder="Identificación" th:field="*{identificaion}"   id="identificacion">
+                        
+                        <input type="date" class="form-control mb-3" placeholder="Fecha Registro" th:field="*{fecha_nacimiento}" id="fechaNacimiento" onChange="calculoEdad()" required>
+                        <input type="text" class="form-control mb-3" placeholder="edad" th:field="*{edad}" id="edad" required disabled>
+                        <input type="password" class="form-control mb-3" placeholder="Contraseña" th:field="*{clave}" required>
+                        <input type="submit" class="btn btn-primary">
+
+                    </form>
+                </div>
+
+                <div class="col-md-8">
+                    <table class="table table-light table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Identificación</th>
+                                <th scope="col">Nombres</th>
+                                <th scope="col">Apellidos</th>
+                                <th scope="col">Telefono</th>
+                                <th scope="col">Correo</th>
+                                <th scope="col">Fecha</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="usuarioItem : ${lstUsuario}">
+                                <td scope="row" th:text="${usuarioItem.identificaion}"></td>
+                                <td scope="row" th:text="${usuarioItem.nombres}"></td>
+                                <td scope="row" th:text="${usuarioItem.apellidos}"></td>
+                                <td scope="row" th:text="${usuarioItem.telefono}"></td>
+                                <td scope="row" th:text="${usuarioItem.correo}"></td>
+                                <td scope="row" th:text="${usuarioItem.fecha_nacimiento}"></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+
+
+
+            </div>
+            <form action="" method="post" class="form-group">
+
+
+                <label for="ID">Formato Reporte Usuarios</label>
+
+                <select id="ID" class="form-select"  th:field="*{usuario}">
+                    <option  th:each="usuarioItem : ${lstUsuario}"  
+                             th:value="${usuarioItem.identificaion}"
+                             th:text="${usuarioItem.identificaion}">
+                    </option></select>
+
+                <select id="tip0" class="form-control">
+                    <option name="tip0" value="PDF" selected>PDF</option>
+                    <option name="tip0" value="EXCEL">EXCEL</option>
+                </select><br>
+
+                <button class="btn btn-outline-dark" type="button"
+                        onclick="reporte5()">Descargar</button>
+
+
+            </form>
+        </div>
+			</div>
+			
+		</div>
+       
+
+    </body>
+	<!--   Core JS Files   -->
+	<script src="js/jquery.3.2.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<!-- jQuery UI -->
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/jquery.ui.touch-punch.min.js"></script>
+	<!-- Bootstrap Toggle -->
+	<script src="js/bootstrap-toggle.min.js"></script>
+	<!-- jQuery Scrollbar -->
+	<script src="js/jquery.scrollbar.min.js"></script>
+	<!-- Azzara JS -->
+	<script src="js/ready.min.js"></script>
+
+    <!-- Botones CSS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+
+    <script src="../js/Datatable.js"></script>
+    <script type="text/javascript" th:src="@{/js/Datatable.js}" />
+    <script src="../js/calculoEdad.js"></script>
+    <script type="text/javascript">
+                              function reporte5() {
+
+                                  var tip0 = document.getElementById("tip0").value;
+                                   var ID = document.getElementById("ID").value;
+
+
+                                  
+                                  window.open("/report/ventas/ReporteUsuario?ID="+ID+"&tipo="+tip0);
+
+                              }
+    </script>
+
+</html>

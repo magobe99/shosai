@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="cliente::html_head">
+        <meta charset="utf-8">
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="sweetalert2.min.js"></script>
+        <link rel="stylesheet" href="sweetalert2.min.css"/>
+
+    </head>
+    <body>
+        <div class="main-header" th:replace="cliente ::html_navbar"></div>
+        <div class="sidebar" th:replace="cliente ::html_sidebar"></div>
+
+        <div class="main-panel">
+            <div class="content content-full">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 mt-2">
+                            <div th:classappend="'alert-' + (${clase != null} ? ${clase} : info)" th:if="${mensaje != null}"
+                                 th:text="${mensaje}"
+                                 class="alert">
+                            </div>
+                            <div class="card shadow-lg p-0 mb-3 mt-1 bg-white">
+                                <div class="card-header  text-center mb-3"
+                                     style="font-size: 25px; color: white; background-color: #684796 ">
+                                    <i class="fa-solid fa-paper-plane"></i> CONTACTENOS - SHOSAI SYS 
+                                </div>
+                                <div class="row">
+                                    <div
+                                        th:classappend="'alert-' + (${clase != null} ? ${clase} : info)"
+                                        th:if="${mensaje != null}" th:text="${mensaje}"
+                                        class="alert text-center"></div>
+                                    <div class="col-lg-12 d-flex justify-content-center">
+
+                                        <form method="POST" th:action="@{/sendMailCliente}" id="emailForm">
+
+                                            <!-- Name input -->
+                                            <div class="mb-3">
+                                                <label class="form-label" for="name">Nombre</label>
+                                                <input class="form-control" name="name" id="nombre" type="text" placeholder="Nombre" />
+                                            </div>
+
+                                            <!-- Email address input -->
+                                            <div class="mb-3">
+                                                <label class="form-label" for="emailAddress">Correo</label>
+                                                <input class="form-control" id="correo" name="mail" type="email" placeholder="Correo electronico" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label" for="asunto">Asunto</label>
+                                                <input class="form-control" name="subject" id="asunto" type="text" placeholder="Asunto" />
+                                            </div>
+
+                                            <!-- Message input -->
+                                            <div class="mb-3">
+                                                <label class="form-label" for="message">Mensaje</label>
+                                                <textarea class="form-control" name="body" id="mensaje" type="text" placeholder="Mensaje" style="height: 10rem;"></textarea>
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                                <input type="file" class="form-control" name="attachment" />
+                                            </div>
+
+                                            <!-- Form submit button -->
+                                            <div class="text-center mt-4">
+                                                <button class="btn btn-primary" type="reset">Limpiar</button>
+                                                <input type="submit" value="Enviar" class="btn btn-primary">
+                                            </div>
+
+                                        </form>
+                                        <br>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--   Core JS Files   -->
+                <script src="js/jquery.3.2.1.min.js"></script>
+                <script src="js/popper.min.js"></script>
+                <script src="js/bootstrap.min.js"></script>
+                <!-- jQuery UI -->
+                <script src="js/jquery-ui.min.js"></script>
+                <script src="js/jquery.ui.touch-punch.min.js"></script>
+                <!-- Bootstrap Toggle -->
+                <script src="js/bootstrap-toggle.min.js"></script>
+                <!-- jQuery Scrollbar -->
+                <script src="js/jquery.scrollbar.min.js"></script>
+                <!-- Azzara JS -->
+                <script src="js/ready.min.js"></script>
+
+                <script src="../js/validar-correo-user.js"></script>
+                <script type="text/javascript">
+                    var sesion = document.getElementById("btnSesion");
+                    sesion.addEventListener("click",
+                            function (event) {
+                                event.preventDefault();
+                                Swal.fire({
+                                    title: '¿Está seguro de cerrar la sesión?',
+                                    showCancelButton: true,
+                                    confirmButtonText: 'Confirmar',
+                                    denyButtonText: 'cancelar',
+                                }).then((result) => {
+
+                                    if (result.isConfirmed) {
+                                        window.location = this.href;
+                                    } else if (result.isDenied) {
+
+                                    }
+                                })
+                            },
+                            false
+                            )
+
+                </script>
+     </body>
+ </html>

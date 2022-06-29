@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="html_head">
+        <meta charset="utf-8">
+        <title>Administrador</title>
+        <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+        <link rel="icon" href="https://pbs.twimg.com/media/FWDfO8vWYAE2TjA?format=png&name=240x240" />
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="sweetalert2.min.js"></script>
+        <link rel="stylesheet" href="sweetalert2.min.css"/>
+
+        <!-- Fonts and icons -->
+        <script src="js/webfont.min.js"></script>
+        <script>
+            WebFont.load({
+                google: {"families": ["Open+Sans:300,400,600,700"]},
+                custom: {"families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands"], urls: ['css/fonts.css']},
+                active: function () {
+                    sessionStorage.fonts = true;
+                }
+            });
+        </script>
+
+        <!-- CSS Files -->
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/datatables.min.css">
+        <link rel="stylesheet" href="css/azzara.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
+
+        <!-- CSS Just for demo purpose, don't include it in your project -->
+    </head>
+    <body>
+
+        <div class="main-header" style="background-color: #F195B2" th:fragment="html_navbar">
+            <!-- Logo Header -->
+            <div class="logo-header">
+                <a th:href="@{/administrador}" class="logo2">
+                    <img src="img/loguito.png" alt="navbar brand" class="navbar-brand">
+                </a>
+
+
+
+                <button class="navbar-toggler sidenav-toggler ml-auto " type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                        <i class="fa fa-bars"></i>
+                    </span>
+
+
+                </button>
+                <button class="topbar-toggler more"><i class="fa fa-ellipsis-v"></i></button>
+                <div class="navbar-minimize">
+                    <button class="btn btn-minimize btn-rounded">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                </div>
+
+
+            </div>
+
+            <!-- End Logo Header -->
+
+            <!-- Navbar Header -->
+            <nav class="navbar navbar-header navbar-expand-lg  d-flex justify-content-center">
+
+                <div class="container-fluid">
+                    <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+                        <li class="nav-item dropdown hidden-caret">
+
+
+                            <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
+                                <div class="avatar-sm">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="..." class="avatar-img rounded-circle">
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user animated fadeIn">
+                                <li>
+                                    <div class="user-box">
+                                        <div class="avatar-lg"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="image profile" class="avatar-img rounded"></div>
+                                        <div class="u-text">
+                                            <h4>Administrador</h4>
+                                            <a th:href="@{/index}" class="btn btn-rounded btn-danger btn-sm" id="btnSesion">Cerrar Sesión</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar" th:fragment="html_sidebar">
+
+            <div class="sidebar-background"></div>
+            <div class="sidebar-wrapper scrollbar-inner">
+                <div class="sidebar-content">
+                    <div class="user">
+                        <div class="avatar-sm float-left mr-2 ">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="..." class="avatar-img rounded-circle">
+                        </div>
+                        <div class="info mb-2">
+                            <a  data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+                                <span>
+
+                                    <span style="font-size: 14px" class="user-level">Administrador</span>
+                                </span>
+                            </a>
+
+                        </div>
+                    </div>
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a th:href="@{/administrador}">
+                                <i class="fas fa-home"></i>
+                                <p>Inicio</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a data-toggle="collapse" href="#base">
+                                <i class="fas fa-layer-group"></i>
+                                <p>Inventarios</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="base">
+                                <ul class="nav nav-collapse">
+                                    <li>
+                                        <a th:href="@{/productos/agregar}">
+                                            <span class="sub-item">Registrar productos</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a th:href="@{/productos/mostrar}">
+                                            <span class="sub-item">Ver Productos</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a data-toggle="collapse" href="#forms">
+                                <i class="fas fa-pen-square"></i>
+                                <p>Usuarios</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="forms">
+                                <ul class="nav nav-collapse">
+                                    <li>
+                                        <a th:href="@{/registroEmpleados}">
+                                            <span class="sub-item">Registrar Admin</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a th:href="@{/registroAdmin}">
+                                            <span class="sub-item">Registar Cliente</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a data-toggle="collapse" href="#charts">
+                                <i class="far fa-chart-bar"></i>
+                                <p>Ventas</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="charts">
+                                <ul class="nav nav-collapse">
+                                    <li>
+                                        <a th:href="@{/ventas/}">
+                                            <span class="sub-item">Ver Ventas</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a th:href="@{/vender/}">
+                                            <span class="sub-item">Registar Venta</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- End Sidebar -->
+
+        <div class="main-panel">
+            <div class="content content-full">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 mt-4">
+                            <div class="jumbotron jumbotron-fluid">
+                                <div class="container">
+                                    <h1 class="display-4 text-center" style="color: #36533A;" >INSPIRA</h1>
+                                    <p class="lead text-center" style="color: #36533A;"><b>Cualquier excusa es válida para darle un detalle a las personas más especiales de tu vida.</b></p>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="table-responsive-xl mt-4" style="font-size: 13px;">
+                                <h1 class="mt-5 pb-4 pt-3 text-center"
+                                    style="color: white; font-size: 22px; background-color: #36533A;">
+                                    Nuestros Productos
+                                </h1>
+                                <table id="example"
+                                       class="table table-light table-bordered  table-striped mt-5"
+                                       style="border-collapse: 50px;">
+
+                                    <thead class=" text-center">
+
+                                        <tr class="text-center">
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Disponibles</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="text-center"
+                                            th:each="producto : ${listarProductosPRO}">
+                                            <td th:text="${producto.nombre}"></td>
+                                            <td th:text="${producto.existencia}"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mt-4">
+                            <div class="card">
+                                <div class="card-body d-flex justify-content-center"
+                                     style="background-color:#D084E1; background-size: cover; opacity: 90%;">
+                                    <div class="row">
+                                        <div class="col-112 mt-2 text-center" style="color: white">
+                                            <span style="font-size: 33px; color: white"><a style="font-size: 33px; color: white" th:href="@{/productos/mostrar}"><i class="fa-solid fa-boxes-stacked"></i></a> 
+                                            </span><h3 class="card-tittle mb-1"
+                                                       style="font-size: 18px; color: white">
+                                                <b><a style="font-size: 18px; color: white; text-decoration:none;" th:href="@{/productos/mostrar}">PRODUCTOS</a></b>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body d-flex justify-content-center"
+                                     style="background-color:#F195B2; background-size: cover; opacity: 90%;">
+                                    <div class="row">
+                                        <div class="col-112 mt-2 text-center" style="color: white">
+                                            <span style="font-size: 33px; color: white"><a style="font-size: 33px; color: white" th:href="@{/ventas/}"><i class="fa-solid fa-money-bill-1-wave"></i></a> 
+                                            </span><h3 class="card-tittle mb-1"
+                                                       style="font-size: 18px; color: white">
+                                                <b><a style="font-size: 18px; color: white; text-decoration:none;" th:href="@{/ventas/}">VENTAS</a></b>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body d-flex justify-content-center"
+                                     style="background-color:#D084E1; background-size: cover; opacity: 90%;">
+                                    <div class="row">
+                                        <div class="col-112 mt-2 text-center" style="color: white">
+                                            <span style="font-size: 33px; color: white"><a style="font-size: 33px; color: white" th:href="@{/contact}"><i class="fa-solid fa-people-group"></i></a> 
+                                            </span><h3 class="card-tittle mb-1"
+                                                       style="font-size: 18px; color: white">
+                                                <b><a style="font-size: 18px; color: white; text-decoration:none;" th:href="@{/contact}">CONTACTO MASIVO</a></b>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!--   Core JS Files   -->
+        <script src="/js/jquery-3.5.1.slim.min.js"></script>
+        <script src="/js/tabla.js"></script>
+        <script src="/js/datatables.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <!-- jQuery UI -->
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/jquery.ui.touch-punch.min.js"></script>
+        <!-- Bootstrap Toggle -->
+        <script src="js/bootstrap-toggle.min.js"></script>
+        <!-- jQuery Scrollbar -->
+        <script src="js/jquery.scrollbar.min.js"></script>
+        <!-- Azzara JS -->
+        <script src="js/ready.min.js"></script>
+        <script type="text/javascript">
+            var sesion = document.getElementById("btnSesion");
+            sesion.addEventListener("click",
+                    function (event) {
+                        event.preventDefault();
+                        Swal.fire({
+                            title: '¿Está seguro de cerrar la sesión?',
+                            showCancelButton: true,
+                            confirmButtonText: 'Confirmar',
+                            denyButtonText: 'cancelar',
+                        }).then((result) => {
+                            
+                            if (result.isConfirmed) {
+                                window.location = this.href;
+                            } else if (result.isDenied) {
+                                
+                            }
+                        })
+                    },
+                    false
+                    )
+
+        </script>
+    </body>
+</html>

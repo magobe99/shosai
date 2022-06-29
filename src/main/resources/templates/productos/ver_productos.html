@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="master">
+    <head th:replace="productos/agregar_producto ::html_head">
+        <meta charset="utf-8">
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="sweetalert2.min.js"></script>
+        <link rel="stylesheet" href="sweetalert2.min.css"/>
+    </head>
+    <body>
+        <div class="main-header" th:replace="productos/agregar_producto ::html_navbar"></div>
+        <div class="sidebar" th:replace="administrador ::html_sidebar"></div>
+
+        <div class="main-panel">
+            <div class="content content-full">
+                <div class="container mt-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 style="font-size: 38px">Productos</h2>
+                            <hr style="height:2px;border:none;color:#333;background-color:#F195B2;" />
+                            <div th:classappend="'alert-' + (${clase != null} ? ${clase} : info)" th:if="${mensaje != null}"
+                                 th:text="${mensaje}"
+                                 class="alert">
+                            </div>
+
+                            <form action="productos/uploadFile" enctype="multipart/form-data" method="post">
+                                <button class="btn btn-outline-secondary " type="submit">Importar modificación</button>
+                                <input class="btn btn-info form-input " type="file" name="file" id="campoFile" onchange="return fileValidation()" 
+                                       accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+                                <br>
+                                <br>
+                            </form>
+                            <a class="btn btn-outline-success mb-2" th:href="@{/productos/agregar}">Agregar</a>
+
+                            <form action="" method="post" class="form-group">
+
+
+                                <label for="Parameter1">Formato Reporte Producto</label>
+                                <select id="tip0" class="form-control">
+                                    <option name="tip0" value="PDF" selected>PDF</option>
+                                    <option name="tip0" value="EXCEL">EXCEL</option>
+                                </select><br>
+
+                                <button class="btn btn-outline-dark" type="button"
+                                        onclick="reporte3()">Descargar</button>
+
+
+                            </form>
+
+                            <br>
+
+                            <div class="table-responsive-xl mt-4" style="font-size: 13px;">
+                                <table id="example"
+                                       class="table table-light table-bordered  table-striped mt-5"
+                                       style="border-collapse: 50px;">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Código</th>
+                                            <th>Precio</th>
+                                            <th>Existencia</th>
+                                            <th>Editar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="producto : ${productos}">
+                                            <td th:text="${producto.nombre}"></td>
+                                            <td th:text="${producto.codigo}"></td>
+                                            <td th:text="${producto.precio}"></td>
+                                            <td th:text="${producto.existencia}"></td>
+                                            <td>
+                                                <a class="btn btn-warning" th:href="@{/productos/editar/} + ${producto.id}">Editar <i
+                                                        class="fa fa-edit"></i></a>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <form action="" method="post" class="form-group">
+
+
+                                <label for="Parameter1">Formato Reporte Inventario Actual</label>
+                                <select id="tip0" class="form-control">
+                                    <option name="tip0" value="PDF" selected>PDF</option>
+                                    <option name="tip0" value="EXCEL">EXCEL</option>
+                                </select><br>
+
+                                <button class="btn btn-outline-dark" type="button"
+                                        onclick="reporte4()">Descargar</button>
+
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+        <!--   Core JS Files   -->
+        <script src="../js/jquery.3.2.1.min.js"></script>
+        <script src="../js/popper.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <!-- jQuery UI -->
+        <script src="../js/jquery-ui.min.js"></script>
+        <script src="../js/jquery.ui.touch-punch.min.js"></script>
+        <!-- Bootstrap Toggle -->
+        <script src="../js/bootstrap-toggle.min.js"></script>
+        <!-- jQuery Scrollbar -->
+        <script src="../js/jquery.scrollbar.min.js"></script>
+        <!-- Azzara JS -->
+        <script src="../js/ready.min.js"></script>
+        <script src="../js/jquery-3.5.1.slim.min.js"></script>
+        <script src="../js/tabla.js"></script>
+        <script src="../js/cargaMasiva.js"></script>
+        <script src="../js/datatables.min.js"></script>
+    </body>
+
+
+
+    <script type="text/javascript">
+                                            function reporte3() {
+
+                                                var tip0 = document.getElementById("tip0").value;
+
+                                                window.open("/report/ventas/ReporteInventario?tipo=" + tip0);
+
+                                            }
+    </script>
+
+    <script type="text/javascript">
+        function reporte4() {
+
+            var tip0 = document.getElementById("tip0").value;
+
+            window.open("/report/ventas/ReporteInventario1?tipo=" + tip0);
+
+        }
+    </script>
+
+    <script type="text/javascript">
+        var sesion = document.getElementById("btnSesion");
+        sesion.addEventListener("click",
+                function (event) {
+                    event.preventDefault();
+                    Swal.fire({
+                        title: '¿Está seguro de cerrar la sesión?',
+                        showCancelButton: true,
+                        confirmButtonText: 'Confirmar',
+                        denyButtonText: 'cancelar',
+                    }).then((result) => {
+
+                        if (result.isConfirmed) {
+                            window.location = this.href;
+                        } else if (result.isDenied) {
+
+                        }
+                    })
+                },
+                false
+                )
+
+    </script>
+
+    
+</html>
